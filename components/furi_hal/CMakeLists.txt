@@ -1,8 +1,9 @@
 # Board selection: pass -DFLIPPER_BOARD=<board_name> to idf.py build
 # Available boards (see boards/ directory and targets/ directory):
-#   waveshare_c6_1.9        - Waveshare ESP32-C6-LCD-1.9 (default, touch input)
-#   waveshare_c6_1.47       - Waveshare ESP32-C6-LCD-1.47 (touch input + IMU)
-#   lilygo_t_embed_cc1101   - LilyGo T-Embed CC1101 (ESP32-S3, encoder input, CC1101/NFC/IR)
+#   waveshare_c6_1.9              - Waveshare ESP32-C6-LCD-1.9 (default, touch input)
+#   waveshare_c6_1.47             - Waveshare ESP32-C6-LCD-1.47 (touch input + IMU)
+#   lilygo_t_embed_cc1101         - LilyGo T-Embed CC1101 (ESP32-S3, encoder input, CC1101/NFC/IR)
+#   diy_esp32s3_st7789_1.9        - DIY ESP32-S3 + ST7789 1.9" + 6 buttons + CC1101 + SPI MicroSD
 if(NOT DEFINED FLIPPER_BOARD)
     set(FLIPPER_BOARD "waveshare_c6_1.9" CACHE STRING "Target board for Flipper ESP32 port")
 endif()
