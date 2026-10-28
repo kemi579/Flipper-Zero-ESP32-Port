@@ -11,6 +11,7 @@ Usage examples:
     python winbuild.py check                          # verify env activates
     python winbuild.py build                          # build T-Embed CC1101 firmware
     python winbuild.py build --board waveshare_c6
+    python winbuild.py build --board diy_st7789_1.9   # DIY ESP32-S3 + ST7789 1.9
     python winbuild.py flash --port COM14
     python winbuild.py monitor --duration 60          # stream live output
     python winbuild.py monitor --duration 15 --reset  # pulse DTR/RTS reset (UART bridges only)
@@ -47,6 +48,7 @@ BOARDS = {
     "waveshare_c6_1.9":  ("waveshare_c6_1.9",      "esp32c6", "build_waveshare_c6"),
     "waveshare_c6_1.47": ("waveshare_c6_1.47",     "esp32c6", "build_waveshare_c6_1.47"),
     "thormini":          ("thormini",              "esp32s3", "build_thormini"),
+    "diy_st7789_1.9":    ("diy_esp32s3_st7789_1.9", "esp32s3", "build_diy_st7789_1.9"),
 }
 
 REPO_ROOT = Path(__file__).resolve().parent
@@ -191,7 +193,7 @@ def cmd_all(args):
 
 
 def _sdkconfig_target(path: Path):
-    """Return CONFIG_IDF_TARGET="..." value from a sdkconfig file, or None."""
+    """Return CONFIG_IDF_TARGET=\"...\" value from a sdkconfig file, or None."""
     try:
         text = path.read_text(errors='ignore')
     except OSError:
